@@ -1,0 +1,61 @@
+$("#showcart").on("click",function(){
+        	var unid = $("#usernamelinkid").data("unid");
+        	alert(unid);
+        	//$('#showingcart').html("");
+        	$('#cart').html("");
+        	$.ajax({
+				url : "showcart.php",
+				type : "POST",
+	        	data : {unid : unid},
+				dataType : "JSON",
+				success : function(data){
+					console.log(data);
+					alert(data.length);
+					//var result = data.split(" ");
+					//console.log(result);
+					$("#cart").append('<div class="products" id = "products"></div>');
+					var j = 0;
+						for (var i=0;i<data.length-1;i++)
+						{
+						$('#products').append('<div class="product"><img src="'+data[i].pimage+'"><div class="product-info"><h3 class="product-name">'+data[i].pname+'</h3><h4 class="product-price">'+data[i].price+'</h4><p class="product-quantity">Qnt: <input value="1" name=""><button class = "btn btn-primary" data-rid="'+data[i].pid+'">update</buttton></p><button class = "btn btn-danger" data-rid="'+data[i].pid+'">remove</buttton></div></div>');
+						//j++;
+						}
+
+						// $("#cart").append('</div>');
+					    $("#cart").append('<div class="cart-total"><p><span>Total Price</span><span>₹ 3,000</span></p><p><span>Number of Items</span><span>'+data[data.length-1][j].total+'</span></p></div>');
+				}
+			});
+
+        });
+
+
+//complete
+        $("#showcart").on("click",function(){
+        	var unid = $("#usernamelinkid").data("unid");
+        	alert(unid);
+        	//$('#showingcart').html("");
+        	$('#cart').html("");
+        	$.ajax({
+				url : "showcart.php",
+				type : "POST",
+	        	data : {unid : unid},
+				dataType : "JSON",
+				success : function(data){
+					console.log(data);
+					alert(data.length);
+					//var result = data.split(" ");
+					//console.log(result);
+					$("#cart").append('<div class="products" id = "products"></div>');
+					var j = 0;
+						for (var i=0;i<data.length-1;i++)
+						{
+						$('#products').append('<div class="product"><img src="'+data[i].pimage+'"><div class="product-info"><h3 class="product-name">'+data[i].pname+'</h3><h4 class="product-price">'+data[i].price+'</h4><p class="product-quantity">Qnt: <input value="1" name=""></p><button class = "btn btn-primary update-show-cart" id = "update-show-cart" data-rid="'+data[i].puid+'">update</buttton><button class = "btn btn-danger delete-show-cart" id = "delete-show-cart" style = "float:right;" data-rid="'+data[i].pdid+'">remove</buttton></div></div>');
+						//j++;
+						}
+
+						// $("#cart").append('</div>');
+					    $("#cart").append('<div class="cart-total"><p><span>Total Price</span><span>₹ 3,000</span></p><p><span>Number of Items</span><span>'+data[data.length-1][j].total+'</span></p></div>');
+				}
+			});
+
+        });

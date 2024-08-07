@@ -1,0 +1,25 @@
+if(confirm('Are You Sure You Want To Place Order?') == true)
+				{
+						$.ajax({
+						url : "confirmorder.php",
+						type : "POST",
+						data : {unid : unid},
+						success : function(data){
+							//alert(data);
+							if(data == 1)
+							{
+								alert("Order Placed \n Continue Shopping");
+								scart();
+							}
+							else
+							{
+								alert("Order Not Placed");
+							}
+						}
+					});
+						
+				}
+				else
+				{
+					alert("Continue Shopping");
+				}

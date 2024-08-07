@@ -1,0 +1,6 @@
+create table ordertb(id integer NOT NULL AUTO_INCREMENT primary key, username varchar(100), pid varchar(100), qty integer, FOREIGN KEY(username) REFERENCES cartlogintb(username), FOREIGN KEY(pid) REFERENCES productstb(pid))
+
+
+
+
+INSERT INTO ordertb (username, pid, qty)SELECT username, pid, qty FROM carttb WHERE username = 'kathan';

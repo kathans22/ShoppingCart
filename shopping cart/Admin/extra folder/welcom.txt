@@ -1,0 +1,86 @@
+<?php 
+/*session_start();
+echo "welcome ";
+echo $_SESSION['username'];*/
+?>
+
+// readdon .php
+
+$pid = $_POST['pid'];
+
+$conn = mysqli_connect("localhost","root","","shopcartdb") or die("connection failed"); 
+
+$sql = "select * from productstb where pid = '$pid'";
+
+$result = mysqli_query($conn,$sql) or die("SQL Query Failed");
+
+$output = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+echo json_encode($output);
+
+//---------------------------------------------------------------------------
+
+/*$pid = $_POST['pid'];
+
+$conn = mysqli_connect("localhost","root","","shopcartdb") or die("connection failed"); 
+
+$sql = "select * from carttb where pid = '$pid'";
+
+$result = mysqli_query($conn,$sql) or die("SQL Query Failed");
+
+$output = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+echo json_encode($output);*/
+
+// login tb value of customer
+
+
+/*session_start();
+
+$username = $_POST['username'];
+$password = $_POST['pass'];
+
+//echo $username." ".$password;
+
+$conn = mysqli_connect("localhost","root","","shopcartdb") or die("connection failed"); 
+
+$sql = "select * from cartlogintb where username = '$username' and password = '$password'";
+
+$result = mysqli_query($conn,$sql) or die("SQL Query Failed");
+
+if($_SESSION['captcha'] == $_POST['captcha'])
+{
+	if(mysqli_num_rows($result) > 0)
+    {
+		if($username == "admin")
+		{
+			$_SESSION['adminusername'] = $username;
+			echo $username;
+		}
+		else
+		{
+			$_SESSION['username'] = $username;
+			echo $username;
+		}
+		//echo 1;
+    }
+}
+else
+{
+	echo 0;
+}*/
+
+
+$.ajax({
+	        		url : "readone.php",
+	        		type : "POST",
+	        		data : {pid : pid},
+	        		dataType : "JSON",
+	        		success : function(data){
+	        			console.log(data);
+	        		}
+	        	});
+
+
+
+?>

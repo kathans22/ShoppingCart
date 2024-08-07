@@ -1,0 +1,204 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION['adminusername']))
+{
+	header("Location: adminlogin.php");
+}
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="admincss.css">
+</head>
+<body>
+	<div class="header">
+		<h1>Welcome To Admin Panel - 
+			<?php echo $_SESSION['adminusername']?>	
+		</h1>&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<div id = "combine">
+
+			<div id = "pmdiv">
+			    <a href="#productsdiv" name = "pm" id = "pm">Products Management</a>&nbsp;&nbsp;&nbsp;
+		    </div>
+
+		    <div id = "vodiv">
+			    <a href="#viewdiv" name = "vo" id = "vo">View Orders</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			    &nbsp;
+		    </div>
+        </div>
+		<form method = "POST">
+			<a href="logout.php"><input type="button" name = "logout" id = "logout" value = "logout"></a>
+		</form>
+    </div>
+
+    <hr class = "new4">
+    <hr class = "new4">
+
+    <div id = "productsdiv">
+    	<table id = "main" border = "0" cellspacing = "0">
+		<tr>
+			<td id = "header">
+				<h1>Search Panel</h1>
+
+				<div id = "search-bar">
+					<label>Search :</label>
+					<input type="text" name="search" id = "search" autocomplete="off">
+				</div><br><br><Br><Br><Br>
+			</td>
+		</tr>
+
+		<tr>
+			<td id = "table-form">
+				<form id = "addform" action = "insert.php" method = "POST" enctype="multipart/form-data">
+					Product ID : <input type = "text" name = "pid" id = "pid"><br><br>
+					Product Name : <input type = "text" name = "pname" id = "pname"><br><br>
+					Product Price : <input type = "number" name = "price" id = "price"><br><br>
+					Product Image : <input type = "file" name = "pimage" id = "pimage" accept="image/png, image/jpeg"><br><br>
+					<input type = "submit" id = "save-button" value = "Add Product">
+				</form><br><br><Br><Br><Br>
+			</td>
+		</tr>
+
+		<tr>
+			<td id="table-data">
+				
+			</td>
+		</tr>
+	</table>
+	<br><br><Br><Br><Br>
+
+	<div id = "error-message" class = "messages"></div><br><br>
+	
+	<div id = "success-message" class = "messages"></div>
+
+	<br><br><Br><Br><Br>
+
+	<!-- popup modal box for update the records-->
+	<div id = "modal">
+		<div id = "modal-form">
+			<h2>Edit Form</h2>
+			<form action = "" id = "edit-form">
+				<table cellpadding="10px" width = "100%">
+					<tr>
+						<td width = "90px">Product ID</td>
+						<td>
+							<input type="text" name="sppid" id = "edit-ppid">
+						</td>
+					</tr>
+					<tr>
+						<td width = "90px">Product Name</td>
+						<td>
+							<input type="text" name="spname" id = "edit-pname">
+							<input type="text" name="spid" id = "edit-pid" hidden = "">
+						</td>
+					</tr>
+
+					<tr>
+						<td>Product Price</td>
+						<td>
+							<input type="number" name="sprice" id = "edit-price">
+						</td>
+					</tr>
+
+					<tr>
+						<td>Product Image</td>
+						<td><input type="file" name="spimage" id = "edit-pimage"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td>
+							<input type="button" name="edit-submit" id = "edit-submit" value="Update">
+						</td>
+					</tr>
+				</table>
+			</form><br><br>
+			<div id="close-btn">X</div><br><br><br><br>
+			<br>
+		</div>
+	</div>
+    </div>
+
+    <hr class = "new4">
+    <hr class = "new4">
+
+    <div id = "viewdiv">
+    </div>
+
+
+    <script type="text/javascript" src="jquery.js"></script>
+
+    <script type = "text/javascript">
+    	$(document).ready(function(){
+
+    		function loadtable(){
+    		$("#table-data").html("");
+            $("#modal").hide();
+			$.ajax({
+				url : "display.php",
+				type : "POST",
+				success : function(data){
+					$("#table-data").html(data);
+				}
+			});
+		}
+		loadtable();
+    	
+
+    	//------------------------- load table
+
+    	//--------------------------- delete
+
+        var id;
+    	$(document).on("click",".delete-btn",function(){
+			id = $(this).data("id");
+			//alert(studentid);
+			$.ajax({
+				url : "delete.php",
+				type : "POST",
+				data : {key:id},
+				success : function(data){
+					alert(data);
+					if(data == 1)
+					{
+						loadtable();
+					}
+					else
+					{
+						alert("false");
+					}
+					//$("#table-data").html(data);
+			}
+
+			});
+		});
+
+
+		// edit fetch 1 record
+
+		$(document).on("click",".edit-btn",function(){
+			$("#modal").show();
+			$("#edit-ppid").focus();
+		});
+
+
+
+	});
+
+    </script>
+
+    
+
+
+</body>
+</html>

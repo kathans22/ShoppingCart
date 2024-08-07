@@ -1,0 +1,19 @@
+<table id = "user-main" border = "0" cellspacing = "0" align="center">
+		<tr>
+			<td id = "header">
+				<h1>Search Panel :-</h1>
+
+				<div id = "search-bar" align="center">
+					<label>Search User:</label>
+					<input type="text" name="search-user" id = "search-user" autocomplete="off">
+				</div><br><hr><hr>
+			</td>
+		</tr>
+<!--  -->
+
+		<tr>
+			<td id="table-data">
+				
+			</td>
+		</tr>
+</table>

@@ -1,0 +1,40 @@
+username pid
+
+
+1 kathan p1
+2 kathan p2
+3 kathan p3
+
+delete from carttb where username = unid and pid = p1
+
+
+select sum(price) as "price" from productstb where pid in (select pid from carttb where username = 'kathan')
+
+
+input (id) -1 ---> 2  update
+
+id
+
+
+1.select qty from carttb WHERE username = 'kathan' and pid = 'p1'
+2.select qty from carttb WHERE username = 'kathan'
+
+1(p1)   1--
+           1 --   
+           1--
+
+
+https://meet.google.com/acd-ytte-mcs
+
+
+
+
+
+select sum(price*qty) as "payprice" from productstb p, carttb c where p.pid = c.pid and c.pid in (select pid from carttb where username = 'kathan')
+
+
+manage user
+
+checkout
+
+cart check

@@ -1,0 +1,5 @@
+select o.id as 'orderid',email,phno,cl.username,p.pid,pname,price*qty,category,pimage,qty from cartlogintb cl, productstb p, ordertb o where cl.username = o.username and p.pid = o.pid
+
+
+
+select o.id as 'orderid',email,phno,cl.username,p.pid,pname,price*qty as 'total',category,qty from cartlogintb cl, productstb p, ordertb o where cl.username = o.username and p.pid = o.pid

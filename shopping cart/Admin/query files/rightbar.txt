@@ -1,0 +1,210 @@
+<div class="right-bar">
+        <div class="container" id="main-data1">
+            <div id="productsdiv">
+                <table id="main" border = "0" cellspacing = "0">
+                    <tr>
+                        <td id="header">
+                            <h1 align="center">Search Panel :-</h1>
+
+                            <div id="search-bar" align="center">
+                                <label>Search :</label>
+                                <input type="text" name="search" id="search" autocomplete="off">
+                            </div><br>
+                            <hr>
+                            <hr>
+                        </td>
+                    </tr>
+                    <!--  -->
+                    <tr>
+                        <td id="table-form">
+                            <div id="table-align">
+                                
+                            	<div>
+
+	                                <form id="addform" action="insert.php" method="POST" enctype="multipart/form-data">
+
+	                                    Product ID : <input type="text" name="pid" id="pid">
+	                                    <div id="piderror"></div><br><br>
+
+	                                    Product Name : <input type="text" name="pname" id="pname">
+	                                    <div id="pnameerror"></div><br><br>
+
+	                                    Product Price : <input type="number" name="price" id="price">
+	                                    <div id="priceerror"></div><br><br>
+
+	                                    Product Category : <input type="text" name="category" id="category">
+	                                    <div id="categoryerror"></div><br><br>
+
+	                                    Product Image : <input type="file" name="pimage" id="pimage"
+	                                        accept="image/png, image/jpeg">
+	                                    <div id="pimageerror"></div><br><br>
+
+	                                    <input type="button" id="confirm-button" value="Confirm Details">
+	                                    &nbsp;&nbsp;&nbsp;&nbsp;
+
+	                                    <input type="submit" id="save-button" value="Add Product">
+	                                </form>
+
+	                            </div>
+
+                            </div>
+                            <br>
+                            <hr>
+                            <hr>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="t-d">
+
+                        </td>
+                    </tr>
+                </table>
+                <br><br>
+                
+                <table id = "table-data" class="table table-borderless" style="color:white;">
+                </table><br><br>
+
+
+
+
+
+                <!-- popup modal box for update the records-->
+                <div id="modal" align="center">
+                    <div id="modal-form" align="center">
+                        <h2>Edit Form</h2>
+                        <form action="update.php" method="POST" id="edit-form" enctype="multipart/form-data">
+                            <table id="product-edit-table" align="center" border="1">
+                                <tr>
+                                    <td width="90px">Product ID</td>
+                                    <td>
+                                        <input type="text" name="sppid" id="edit-ppid">
+                                        <div id="sppiderror"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="90px">Product Name</td>
+                                    <td>
+                                        <input type="text" name="spname" id="edit-pname">
+                                        <div id="spnameerror"></div>
+                                        <input type="text" name="spid" id="edit-pid" hidden="">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Product Price</td>
+                                    <td>
+                                        <input type="number" name="sprice" id="edit-price">
+                                        <div id="spriceerror"></div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Product category</td>
+                                    <td>
+                                        <input type="text" name="scategory" id="edit-category">
+                                        <div id="scategoryerror"></div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Product Image</td>
+                                    <td>
+                                        <input type="file" name="spimage" id="edit-pimage">
+                                        <div id="spimageerror"></div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Required Action</td>
+                                    <td>
+                                        <input type="button" name="confirm-edit" id="confirm-edit"
+                                            value="Confirm Updation">&nbsp;&nbsp;
+                                        <input type="submit" name="edit-submit" id="edit-submit" value="Update">
+                                    </td>
+                                </tr>
+                            </table>
+                        </form><br><br>
+                        <div id="close-div">
+                            <input type="button" name="close-btn" id="close-btn" value="Close(X)">
+                        </div>
+                        <br>
+                        <hr>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+
+            <!--  -->
+
+            <hr class="new4">
+            <hr class="new4">
+            <hr class="new4">
+            <hr class="new4"><br>
+
+            <!--  -->
+            <div id="deletecategory" align="center">
+                <h2>Category Deletion Management :-</h2>
+                <br><br>
+                <form id="delete-category-form" method="POST">
+                    <input type="text" name="category-delete" id="category-delete" autocomplete="off"
+                        placeholder="Enter category name which needed to be deleted">
+                    <input type="button" name="category-delete-btn" id="category-delete-btn" value="Delete Category">
+                </form>
+            </div><br>
+
+            <div id="error-message" class="messages" align="center"></div><br><br>
+
+            <div id="success-message" class="messages" align="center"></div>
+
+            <Br><Br>
+
+            <hr class="new4">
+            <hr class="new4">
+            <hr class="new4">
+
+            <!--  -->
+
+            <div id="usermanage" align="center">
+                <h1>User Management :-</h1>
+                <table id="user-main" border="0" cellspacing="0" align="center">
+                    <tr>
+                        <td id="header">
+                            <h2 align="center">Search Panel :-</h2>
+
+                            <div id="search-bar-user" align="center">
+                                <input type="text" name="search-user" id="search-user" autocomplete="off"
+                                    placeholder="Search User:">
+                            </div><br>
+                            <hr>
+                            <hr>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td id="t-d-u">
+
+                        </td>
+                    </tr>
+                </table>
+            </div><br><br>
+
+            <table id = "tabledatauser" class="table table-borderless" style="color:white;">
+               </table>
+
+
+
+            <hr class="new4">
+            <hr class="new4">
+            <hr class="new4">
+
+
+            <div id="viewdiv">
+                orders are listed here
+            </div>
+        </div>
+
+    </div>

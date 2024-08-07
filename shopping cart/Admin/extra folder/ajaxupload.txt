@@ -1,0 +1,75 @@
+//uploading insert
+
+    	$("#pimage").change(function(){
+
+    		var file = $("#pimage").prop("files")[0];
+
+    		var form = new FormData();
+    		form.append("pimage",file);
+    		console.log(file);
+
+    		$.ajax({
+                url: "upload.php",
+                type: "POST",
+                data:  form,
+                contentType: false,
+                processData:false,
+                success: function(result){
+                    alert(result);
+                }
+            });
+    	});
+
+
+$("#save-button").on("click",function(e){
+            e.preventDefault();
+            var file = "images/"+($("#pimage").prop("files")[0]['name']);
+            
+            var pid = $("#pid").val();
+            
+            var pname = $("#pname").val();
+            
+            var price = $("#price").val();
+
+            alert(pid+pname+price+file);
+            
+
+            $.ajax({
+                url: "insert.php",
+                type: "POST",
+                data: {pid : pid, pname : pname, price : price, file : file},
+                success: function(data){
+                    alert(data);
+                    if(data == 1)
+                    {
+                        loadtable();
+                    }
+                    else
+                    {
+                        alert("false");
+                    }
+                }
+            });
+        });
+
+        //---- uploading update
+
+        $("#edit-pimage").change(function(){
+
+            var file = $("#pimage").prop("files")[0];
+
+            var form = new FormData();
+            form.append("pimage",file);
+            console.log(file);
+
+            $.ajax({
+                url: "upload.php",
+                type: "POST",
+                data:  form,
+                contentType: false,
+                processData:false,
+                success: function(result){
+                    alert(result);
+                }
+            });
+        });

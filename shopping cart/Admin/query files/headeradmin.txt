@@ -1,0 +1,31 @@
+<div class="header">
+		<h1>Welcome - 
+			<?php echo $_SESSION['adminusername']?>	
+		</h1>&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<div id = "combine">
+
+			<div id = "pmdiv">
+			    <a href="#productsdiv" name = "pm" id = "pm">Products Management</a>&nbsp;&nbsp;&nbsp;
+		    </div>
+
+		    <div id = "vodiv">
+			    <a href="#viewdiv" name = "vo" id = "vo">View Orders</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			    &nbsp;
+		    </div>
+
+		    <div id = "cddiv">
+			    <a href="#deletecategory" name = "deleted1" id = "deleted1">Category Management</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			    &nbsp;
+		    </div>
+
+		    <div id = "userdiv">
+			    <a href="#usermanage" name = "userlink" id = "userlink">User Management</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			    &nbsp;
+		    </div> 
+
+        </div>
+		<form method = "POST">
+			<a href="logout.php"><input type="button" name = "logout" id = "logout" value = "logout"></a>
+		</form> 
+    </div>

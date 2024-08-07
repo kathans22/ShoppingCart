@@ -1,0 +1,3 @@
+SELECT count(pid) FROM `carttb` WHERE username = 'kathan';
+
+select * from productstb where pid in (SELECT pid FROM `carttb` WHERE username = 'kathan');

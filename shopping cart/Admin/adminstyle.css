@@ -1,0 +1,69 @@
+body{
+  background-color: lightcoral;
+}
+#logout
+{
+	/*float: right;
+	margin-right: 20px;*/
+	background-color: aquamarine;
+	border: 2px solid black;
+	border-radius: 5px;
+	padding: 8px 12px;
+}
+
+#pm,#vo{
+padding-right: 35px;
+color : darkmagenta;
+text-decoration: none;
+border: 1px solid black;
+background-color: #C7A317;
+border-radius: 5px;
+margin-left: 2px;
+}
+
+#deleted1{
+  padding-right: 35px;
+  color : darkmagenta;
+  text-decoration: none;
+  border: 1px solid black;
+  background-color: #C7A317;
+  border-radius: 5px;
+  margin-left: 2px;
+}
+
+#userlink{
+  padding-right: 35px;
+  color : darkmagenta;
+  text-decoration: none;
+  border: 1px solid black;
+  background-color: #C7A317;
+  border-radius: 5px;
+  margin-left: 2px;
+}
+
+.header
+{
+	font-family: sans-serif;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px 70px;
+	background-color: brown;
+}
+
+
+#combine{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+    	
+hr.new4 {
+    border: 1px solid skyblue;
+}
+
+#product-edit-table{
+  background-color: bisque;
+}

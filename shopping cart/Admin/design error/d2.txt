@@ -1,0 +1,61 @@
+<h1>Shopping Cart</h1>
+
+      <div class="cart">
+
+          <div class="products">
+
+            <div class="product">
+
+              <img src="5932118.jpg">
+
+                <div class="product-info"> // product
+
+                  <h3 class="product-name">New Shoes</h3>
+
+                  <h4 class="product-price">₹ 1,000</h4>
+
+                  <h4 class="product-offer">50%</h4>
+
+                </div>
+            </div> // first ajax call
+          </div> //products ended
+
+        <div class="cart-total">
+
+          <p>
+
+            <span>Total Price</span>
+
+            <span>₹ 3,000</span>
+
+          </p>
+
+          <p>
+
+            <span>Number of Items</span>
+
+            <span>2</span>
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      cart khali karvanu 
+      products append karvanu
+      product no data nakhvano
+      product puru karvanu
+      cartotal no data append karvano cart ma
+
+
+      <p class="product-quantity">Qnt: <input value="1" name="">
+
+                    <p class="product-remove">
+
+                    <i class="fa fa-trash" aria-hidden="true"></i></p>
+
+                    <span class="remove">Remove</span>
+
+                  </p>
