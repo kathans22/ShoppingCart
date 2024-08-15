@@ -1,4 +1,4 @@
-# Shopping Cart Project
+# Shopping Club Project
 
 ## Description
 
